@@ -9,21 +9,22 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //wire button to do stuff
-        //gets button
-        Button btn = (Button) findViewById(R.id.Action);
-        //lets do stuff with button
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("MyApp", "this a magic log message!");
-                Toast.makeText(getApplicationContext(), "yes or no", Toast.LENGTH_SHORT);
-            }
-        });
+        url = dictionaryEntries();
+    }
+    public void requestApiOnClick(View v) {
+        MyApiRequest myApiRequest = new MyApiRequest(this);
+        myApiRequest.execute(url);
+    }
+    private String dictionaryEntries() {
+        final String language = "en";
+        final String word = "Eye";
+        final String word_id = word.toLowerCase();
+        return "https://od-api.oxforddictionaries.com:443/api/v1/search/" + language + "?q=" + word_id;
     }
 }
