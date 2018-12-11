@@ -13,7 +13,9 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_Word"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:textColor="#0091EA"
+        >
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/input"
@@ -38,8 +40,14 @@
     <TextView
         android:id="@+id/txtOutput"
         android:layout_width="match_parent"
-        android:layout_height="283dp"
+        android:layout_height="140dp"
         android:layout_marginBottom="15dp"
+        android:textColor="#0091EA" />
+
+    <TextView
+        android:id="@+id/outputPoint"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
         android:textColor="#0091EA"
         />
 

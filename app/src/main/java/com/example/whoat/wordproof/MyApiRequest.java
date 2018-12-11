@@ -5,7 +5,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
-
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +21,8 @@ public class MyApiRequest extends AsyncTask<String, Integer, String> {
         t2 = t;
         e2 = e;
     }
-    // Needed api example to help me do this from Oxford Api
+    // Needed api example to help me do this from Oxford Api, very confusing to make without help
+    //Specific way Oxford Api wants the request
     // (https://developer.oxforddictionaries.com/documentation#!/Dictionary32entries/get_entries_source_lang_word_id)
     @Override
     protected String doInBackground(String... params) {
@@ -43,7 +43,7 @@ public class MyApiRequest extends AsyncTask<String, Integer, String> {
             return stringBuilder.toString();
         }
         catch (Exception e) {
-            String a = "Not a real word, Please try again!";
+            String a = e2.getText().toString() + " is not a real word, Please try again!";
             t2.setText(a);
             e.printStackTrace();
             return e.toString();
