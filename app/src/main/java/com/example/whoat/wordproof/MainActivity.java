@@ -31,12 +31,13 @@ public class MainActivity extends AppCompatActivity {
     private int numLetters() {
         return e1.getText().toString().length();
     }
-    private String points(String word) {
-        if (word == null) {
+    private String points(String s) {
+        if (s == null) {
             return "0";
         }
         Integer points = 0;
-        char[] array = word.toCharArray();
+        s = s.toLowerCase();
+        char[] array = s.toCharArray();
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 'e') {
                 points += 1;

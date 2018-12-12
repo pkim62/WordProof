@@ -1,5 +1,4 @@
 package com.example.whoat.wordproof;
-import android.content.Context;
 import android.os.AsyncTask;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -7,17 +6,14 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MyApiRequest extends AsyncTask<String, Integer, String> {
-    Context c;
     TextView t2;
     EditText e2;
-    MyApiRequest(Context co, TextView t, EditText e) {
-        c = co;
+    MyApiRequest(TextView t, EditText e) {
         t2 = t;
         e2 = e;
     }
@@ -72,7 +68,6 @@ public class MyApiRequest extends AsyncTask<String, Integer, String> {
             def = de.getString(0);
 
             t2.setText(realWord + def);
-            Toast.makeText(c,def,Toast.LENGTH_SHORT);
         } catch (JSONException e) {
             e.printStackTrace();
         }
