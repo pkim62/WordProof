@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         t3 = findViewById(R.id.outputPoint);
     }
     public void requestApiOnClick(View v) {
-        MyApiRequest myApiRequest = new MyApiRequest(this, t1, e1);
+        MyApiRequest myApiRequest = new MyApiRequest(t1, e1);
         myApiRequest.execute(dictionaryEntries());
         t3.setText(points(e1.getText().toString()) + "\n" + "Number of Letters: " + numLetters());
     }
